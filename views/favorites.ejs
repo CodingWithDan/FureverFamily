@@ -1,0 +1,36 @@
+<%- include('partials/header') -%>
+<div class="container">
+    <h2 class="d-flex justify-content-center"><%= user.userName %>'s Favorites </h2>
+  <div class="row mt-5">
+      
+    <div class="container mt-2">
+    
+      <ul class="row list-unstyled">
+      <% for(var i=0; i<posts.length; i++) {%>
+        <li class="col-lg-6 col-md-6 col-sm-6 mb-4">
+          <div class="bg-custom-color ">
+            <h3 class="newFont text-center"><%= posts[i].name %></h3>
+            <a href="/post/<%= posts[i]._id%>">
+              <img class="img-fluid" src="<%= posts[i].image%>">
+            </a>
+          </div>
+        
+                     
+
+          <!-- <form
+            class="fas fa-heart text-danger text text-center"
+              action="/post/savePic"
+              method="POST"
+            >
+          </form> -->
+          
+        </li>
+
+      <% } %>
+     
+      </ul>
+    </div>  
+  </div>
+</div>
+</div>
+<%- include('partials/footer') -%>

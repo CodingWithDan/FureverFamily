@@ -1,0 +1,29 @@
+
+<%- include('partials/header') -%>
+
+  <div class="container mt-2">
+    <div class="row">
+      <% for(var i=0; i<posts.length; i++) { %>
+        <div class="col-lg-6 col-md-6 col-sm-6 mb-4">
+          <div class="card h-80 bg-custom-color" >
+            <div class="row">
+              <div class="col-2">
+                <img src="/imgs/favicon-32x32.png" alt="Favicon" class="rounded img-fluid m-2" style="max-width: 30px; max-height: 30px;">
+              </div>
+              <div class="col-10">
+                <h3 class="newFont"><%= posts[i].name %></h3>
+              </div>
+            </div>
+            <a href="/post/<%= posts[i]._id %>">
+              <img class="img-fluid" src="<%= posts[i].image %>" alt="<%= posts[i].name %>">
+            </a>
+          </div>
+        </div>
+      <% }; %>
+    </div>
+  </div>
+  
+  
+
+  
+<%- include('partials/footer') -%>

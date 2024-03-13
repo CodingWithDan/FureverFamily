@@ -1,0 +1,157 @@
+<%- include('partials/header') -%>
+<div class="container">
+  <div class="row justify-content-center mt-5">
+    <div class="container mt-2 text-center">
+      
+      <img class="img-fluid col-lg-6 rounded " src="<%= post.image%>" />
+
+    </div>
+
+    <!--Cat INFORMATION --->
+    <div class="bg-white justify-content-between rounded mt-5 d-flex flex-md-row flex-column">
+    
+      <!-- CAT INTRO - Left Column-->
+    
+    <div class="container ">
+      <div class="col-12 mt-3 fs-5">
+        <h1><%= post.name %></h1>
+        <div class="p-3">
+        <%= post.age %> Years Old &#x25CF; <%= post.gender %> &#9679; <%= post.breed %> &#9679; <%= post.color %>
+        </div>
+        <hr/>
+      </div>
+
+      <!-- CAT STATS -->
+      <div class="col-12 mt-5 fs-5">
+      
+          <h3>About</h3>
+          <hr/>
+          <h5>Hair Length</h5>
+          <p class="rounded p-3 mb-2 bg-light text-dark"><%= post.hairLength %></p>
+          <h5>Size</h5>
+          <p class="rounded p-3 mb-2 bg-light text-dark"><%= post.bodySize %></p>
+        </div>
+      
+
+
+      <div class="col-12 mt-5 fs-5">
+        <h3>Health</h3>
+        <hr/>
+        <h5>Spayed/neutered</h5>
+        <p class="rounded p-3 mb-2 bg-light text-dark"><%= post.spayedNeutered %></p>
+        <h5>Vaccinations</h5>
+        <p class="rounded p-3 mb-2 bg-light text-dark"><%= post.vaccinations %></p>
+        <h5>Special Needs</h5>
+        <p class="rounded p-3 mb-2 bg-light text-dark"><%= post.specialNeeds %></p>
+      </div>
+      
+
+      <div class="col-12 mt-5 fs-5">
+       <h3>Behavior</h3>
+       <hr/>
+        <h5>House Trained</h5>
+        <p class="rounded p-3 mb-2 bg-light text-dark"><%= post.houseTrained %></p>
+        <h5>Friendly With Kids</h5>
+        <p class="rounded p-3 mb-2 bg-light text-dark"><%= post.goodWithKids %></p>
+        <h5>Friendly With Other Animals</h5>
+        <p class="rounded p-3 mb-2 bg-light text-dark"><%= post.goodWithAnimals %></p>
+      </div>
+      
+ 
+   
+   
+
+<!-- ABOUT SECTION - Right Column-->
+</div>
+
+  <div class="container">
+   
+    <!-- BIOGRAPHY -->
+
+     <div class="bg-custom-color text-black rounded mt-3 vstack gap-0">
+      <div class="mt-3 text-center d-flex justify-content-center">
+        <div>
+          <h3 class="text-center">About <%= post.name %></h3>
+          <hr/>
+        </div>
+      </div>
+      <p class="rounded p-3 mb-2 text-dark fs-5"><%= post.caption %></p>
+    </div>
+    
+
+     <!-- ADOPTION INFORMATION -->
+     <div class="bg-custom-color text-black rounded mt-3 d-flex justify-content-center"> 
+      <div class="col-6 mt-3 fs-5 text-center">
+        <h3>If Interested in <%= post.name %></h3>
+        <hr/>
+          <h5>Adoption Center</h5>
+            <p class="rounded p-3 mb-2 bg-light text-dark"><%= post.adoptionCenter %></p>
+          <h5>Phone Number</h5>
+            <p class="rounded p-3 mb-2 bg-light text-dark"><%= post.phoneNumber %></p>
+          <h5>Email</h5>
+            <p class="rounded p-3 mb-2 bg-light text-dark"><%= post.sellerEmail %></p>
+          <h5>Location</h5>
+            <p class="rounded p-3 mb-2 bg-light text-dark"><%= post.location %></p>
+            <!-- <form action="/favorite/addFavorite/<%= post._id %>"" method="POST"> -->
+            <form
+            class="fas fa-heart text-danger"
+              action="/post/savePic"
+              method="POST"
+            >
+          </form>
+         
+
+      </div>
+    
+    </div>
+
+  </div>
+  
+  <!-- The below div is the end of the white background container-->
+  </div>
+  
+ 
+
+
+    <!-- COMMENT SECTION -->
+
+    <!-- Add Comment -->
+    <div class="mt-5 fs-5">
+      <h2>Add a comment</h2>
+      <form action="/comment/createComment/<%=post._id%>" method="POST">
+        <div class="mb-3 fs-5">
+            <label for="comment" class="form-label">Comment</label>
+            <input type="text" class="form-control" id="comment" name="comment">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+    
+
+    <div class="comment-container">
+      <ul>
+        <% for (var i = 0; i < comments.length; i++) { %>
+          <li class="comment">
+            <!-- If comment was created by the current user, then show delete button -->
+            <% if (comments[i].createdById == user.id) { %>
+              <form action="/comment/deleteComment/<%= post._id %>/<%= comments[i]._id %>?_method=DELETE" method="POST">
+                <button type="submit" class="delete-btn fa fa-trash" ></button>
+              </form>
+            <% } %>
+            <!-- User attribution -->
+            <span class="comment-author ms-4"><%= comments[i].createdBy %> says:</span>
+            <!-- Displayed comment -->
+            <span class="comment-text">"<%= comments[i].comment %>"</span>
+          </li>
+        <% } %>
+      </ul>
+    </div>
+
+    <!-- Return to feed -->
+    <div class=" d-flex justify-content-center col-6 mt-5 mb-3">
+      <a class="btn btn-primary" href="/feed">Return to Feed</a>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer') -%>

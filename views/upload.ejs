@@ -1,0 +1,92 @@
+<%- include('partials/header') -%>
+<h2  class="d-flex justify-content-center">New Post</h2>
+<div class="d-flex justify-content-center">
+    
+    <form action="/post/createPost" enctype="multipart/form-data" method="POST">
+      <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" class="form-control" id="name" name="name">
+      </div>
+      <div class="mb-3">
+        <label for="age" class="form-label">Age</label>
+        <input type="number" textarea class="form-control" id="age" name="age"></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="gender" class="form-label">Gender</label>
+        <input type="text" class="form-control" id="gender" name="gender">
+      </div>
+      <div class="mb-3">
+      <label for="breed" class="form-label">Breed</label>
+      <input type="text" class="form-control" id="breed" name="breed">
+      </div>
+      <div class="mb-3">
+        <label for="color" class="form-label">Color</label>
+        <input type="text" class="form-control" id="color" name="color">
+      </div>
+      <div class="mb-3">
+        <label for="bodySize" class="form-label">Size</label>
+        <input type="text" class="form-control" id="bodySize" name="bodySize">
+      </div>
+      <div class="mb-3">
+        <label for="hairLength" class="form-label">Hair Length</label>
+        <input type="text" class="form-control" id="hairLength" name="hairLength">
+      </div>
+     
+      <div class="mb-3">
+        <label for="spayedNeutered" class="form-label">Spayed/Neutered?</label>
+        <input type="text" class="form-control" id="spayedNeutered" name="spayedNeutered">
+      </div>
+      <div class="mb-3">
+        <label for="vaccinations" class="form-label">Vaccinations</label>
+        <input type="text" class="form-control" id="vaccinations" name="vaccinations">
+      </div>
+      <div class="mb-3">
+        <label for="specialNeeds" class="form-label">Special Needs?</label>
+        <input type="text" class="form-control" id="specialNeeds" name="specialNeeds">
+      </div>
+
+      <div class="mb-3">
+        <label for="houseTrained" class="form-label">House Trained?</label>
+        <input type="text" class="form-control" id="houseTrained" name="houseTrained">
+      </div>
+      <div class="mb-3">
+        <label for="goodWithKids" class="form-label">Friendly With Kids?</label>
+        <input type="text" class="form-control" id="goodWithKids" name="goodWithKids">
+      </div>
+      <div class="mb-3">
+        <label for="goodWithAnimals" class="form-label">Friendly With Other Animals?</label>
+        <input type="text" class="form-control" id="goodWithAnimals" name="goodWithAnimals">
+      </div>
+
+      <div class="mb-3">
+        <label for="adoptionCenter" class="form-label">Adoption Center</label>
+        <input type="text" class="form-control" id="adoptionCenter" name="adoptionCenter">
+      </div>
+      <div class="mb-3">
+        <label for="phoneNumber" class="form-label">Contact Number</label>
+        <input type="text" class="form-control" id="phoneNumber" name="phoneNumber">
+      </div>
+      <div class="mb-3">
+        <label for="sellerEmail" class="form-label">Email</label>
+        <input type="text" class="form-control" id="sellerEmail" name="sellerEmail">
+      </div>
+      <div class="mb-3">
+        <label for="location" class="form-label">Location</label>
+        <input type="text" class="form-control" id="location" name="location">
+      </div>
+
+      <div class="mb-3">
+        <label for="caption" class="form-label">Tell Us About Your Furry Baby</label>
+        <textarea class="form-control" id="caption" name="caption"></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="imgUpload" class="form-label">Image</label>
+        <input type="file" class="form-control" id="imageUpload" name="file">
+      </div>
+
+      
+      <button type="submit" class="btn btn-primary  d-flex justify-content-center col-6 mb-5 text-center" value="Upload">Submit</button>
+    </form>
+  </div>
+
+  <%- include('partials/footer') -%>
